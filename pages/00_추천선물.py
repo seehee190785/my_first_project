@@ -35,6 +35,9 @@ gift_recommendations = {
     "ENTJ": ("노이즈캔슬링 헤드폰 🎧", "몰입과 성과를 중시하는 당신에겐, 세상과 단절하고 집중할 수 있는 도구가 필요해요."),
 }
 
+# 사용자 입력
+selected_mbti = st.selectbox("당신의 MBTI는 무엇인가요?", mbti_types)
+
 # 결과 출력
 if selected_mbti:
     gift, reason = gift_recommendations[selected_mbti]
