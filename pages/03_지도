@@ -1,0 +1,63 @@
+import streamlit as st
+
+# 페이지 설정
+st.set_page_config(page_title="한국인이 사랑하는 여행지 TOP10", page_icon="🌸", layout="wide")
+
+# 스타일 커스터마이징
+st.markdown("""
+    <style>
+    .title {
+        font-size: 40px;
+        font-weight: bold;
+        color: #E06AA5;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .desc {
+        font-size: 18px;
+        text-align: center;
+        color: #666666;
+        margin-bottom: 50px;
+    }
+    .card {
+        background-color: #FFF0F5;
+        padding: 20px;
+        border-radius: 25px;
+        box-shadow: 0 4px 8px rgba(240, 128, 128, 0.2);
+        margin-bottom: 30px;
+    }
+    .card h3 {
+        color: #C94D7C;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# 타이틀
+st.markdown('<div class="title">🇰🇷 한국인이 사랑하는 여행지 TOP 10 🌸</div>', unsafe_allow_html=True)
+st.markdown('<div class="desc">사랑스러운 풍경과 추억을 담은, 꼭 가봐야 할 한국의 아름다운 여행지들을 소개합니다 ✨</div>', unsafe_allow_html=True)
+
+# 여행지 데이터
+travel_spots = [
+    {"name": "제주도", "img": "https://source.unsplash.com/800x500/?jeju", "desc": "푸른 바다와 한라산의 조화! 자연과 힐링이 가득한 섬🌊"},
+    {"name": "부산", "img": "https://source.unsplash.com/800x500/?busan", "desc": "해운대와 광안리에서 즐기는 활기찬 바다도시🌇"},
+    {"name": "경주", "img": "https://source.unsplash.com/800x500/?gyeongju", "desc": "천년의 역사를 간직한 고도, 신라의 숨결이 느껴져요🏛️"},
+    {"name": "서울", "img": "https://source.unsplash.com/800x500/?seoul", "desc": "과거와 현재가 공존하는 매력적인 수도도시🏙️"},
+    {"name": "강릉", "img": "https://source.unsplash.com/800x500/?gangneung", "desc": "바다와 커피 향이 어우러진 감성 도시☕"},
+    {"name": "속초", "img": "https://source.unsplash.com/800x500/?sokcho", "desc": "설악산과 동해 바다를 한 번에! 자연 속 힐링여행🏞️"},
+    {"name": "전주", "img": "https://source.unsplash.com/800x500/?jeonju", "desc": "한옥마을과 전통 음식이 반기는 도시🍲"},
+    {"name": "남해", "img": "https://source.unsplash.com/800x500/?namhae", "desc": "그림 같은 바다 마을에서 느끼는 여유🌅"},
+    {"name": "인천 강화도", "img": "https://source.unsplash.com/800x500/?ganghwado", "desc": "역사와 자연이 살아있는 섬 여행🏝️"},
+    {"name": "여수", "img": "https://source.unsplash.com/800x500/?yeosu", "desc": "밤바다로 유명한 낭만 도시💡"},
+]
+
+# 카드 스타일로 여행지 소개
+cols = st.columns(2)
+for idx, spot in enumerate(travel_spots):
+    with cols[idx % 2]:
+        st.markdown(f"""
+            <div class="card">
+                <img src="{spot['img']}" alt="{spot['name']}" width="100%" style="border-radius: 15px;">
+                <h3>{spot['name']}</h3>
+                <p>{spot['desc']}</p>
+            </div>
+        """, unsafe_allow_html=True)
